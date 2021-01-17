@@ -75,7 +75,6 @@ export const recursivelyApply = (
           );
         } catch (e) {
           console.warn('Failed to decrypt property', cur, data[cur]);
-          console.log(e);
         }
         if (jsonProperties.includes(cur)) {
           value = JSON.parse(value);

@@ -1,4 +1,4 @@
-import {Project} from '@portabella/common';
+import {Project} from './types';
 
 export const migrations: Migration[] = [
   // update labels from encrypted string to json payload of

@@ -1,6 +1,6 @@
-import {decrypt, encrypt} from '@portabella/sdk/src/services/crypto/aes';
-import {EnrichedCard, Labels} from '@portabella/common';
-import KeyPair from '@portabella/sdk/src/services/crypto/asymmetric';
+import {decrypt, encrypt} from './aes';
+import {EnrichedCard, Labels} from '../../types';
+import KeyPair from './asymmetric';
 
 const encryptedProperties = [
   'name',

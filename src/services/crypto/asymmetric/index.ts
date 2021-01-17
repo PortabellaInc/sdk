@@ -1,6 +1,6 @@
-import {BoardKeyType} from '@portabella/common';
 import {HDKey} from 'ethereum-cryptography/hdkey';
 import {HDKeyT} from 'ethereum-cryptography/pure/hdkey';
+import {BoardKeyType} from '../../../types';
 import {ensureUnarmored} from '../../encoding';
 import {exportKey, importKey} from '../aes';
 import * as ec from './ec';

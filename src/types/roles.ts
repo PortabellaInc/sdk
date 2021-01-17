@@ -11,6 +11,18 @@ export enum IntegrationRole {
   ProjectAdmin = 'project_admin',
 }
 
+export function getDisplayName(role: IntegrationRole) {
+  if (role === IntegrationRole.Writer) {
+    return 'Write access';
+  }
+
+  if (role === IntegrationRole.Reader) {
+    return 'Read only';
+  }
+
+  return 'Administrator';
+}
+
 export enum Permission {
   Admin = 'admin',
   Write = 'write',

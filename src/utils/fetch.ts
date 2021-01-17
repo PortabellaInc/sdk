@@ -1,9 +1,4 @@
-import {widgetUrl} from '@portabella/common/config';
-
-const isProduction = process.env.NODE_ENV === 'production';
-const backendUrl = isProduction
-  ? 'https://backend.portabella.io'
-  : 'http://localhost:5000';
+import {backendUrl} from '../config';
 
 const dateProperties = [
   'createdAt',

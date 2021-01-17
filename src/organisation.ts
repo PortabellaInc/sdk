@@ -1,12 +1,7 @@
-import {
-  CreateIntegration,
-  Organisation,
-  ProjectList,
-  Role,
-} from '@portabella/common';
 import {UserSDK} from './admin';
 import {default as AsymmetricKeyPair} from './services/crypto/asymmetric';
 import {decryptFields, encryptFields} from './services/crypto/helpers';
+import {Organisation, ProjectList, Role} from './types';
 
 export class TeamSDK {
   user: UserSDK;

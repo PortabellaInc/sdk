@@ -215,3 +215,33 @@ export type CreateIntegration = {
   keyType?: Key;
   encryptedKey?: string;
 };
+
+export type Integration = {
+  id: string;
+  boardId: string;
+  publicKey: string;
+  encryptedKey: string;
+  role: IntegrationRole;
+  organisationId: string;
+  name: string;
+  description: string;
+  userId: string;
+  createdAt: Date;
+  updatedAt: Date;
+  keyType: Key;
+  boardKeyType: BoardKeyType;
+};
+
+export interface CreateWidget {
+  name: string;
+  description?: string;
+  token: string;
+  integrationId: string;
+}
+
+export interface Widget extends CreateWidget {
+  id: string;
+  createdAt: Date;
+  userId: string;
+  projectId: string;
+}

@@ -1,18 +1,17 @@
+import {generateMnemonic} from 'bip39';
+import {sha256} from 'ethereum-cryptography/sha256';
+import {backendUrl} from './config';
+import AsymmetricKeyPair from './services/crypto/asymmetric';
+import {decryptFields, encryptFields} from './services/crypto/helpers';
 import {
   BoardKeyType,
-  config,
-  CreateIntegration,
   CreateOrganisation,
-  fetch,
   Key,
   Organisation,
   ProjectList,
   Role,
-} from '@portabella/common';
-import {generateMnemonic} from 'bip39';
-import {sha256} from 'ethereum-cryptography/sha256';
-import AsymmetricKeyPair from './services/crypto/asymmetric';
-import {decryptFields, encryptFields} from './services/crypto/helpers';
+} from './types';
+import {fetch} from './utils';
 
 async function request(path: string, options: {[x: string]: any} = {}) {
   const result = await window.fetch(path, options);
@@ -125,7 +124,7 @@ export class UserSDK {
     }
   ) {
     const {challenge, signature} = await generateSignature(keyPair);
-    return request(`${config.backendUrl}/users/register`, {
+    return request(`${backendUrl}/users/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -241,6 +241,10 @@ export class ProjectSDK {
     return this.post(routes.addColumn(), col);
   };
 
+  updateColumns = async (data: UpdateColumnInput) => {
+    return this.put(routes.updateColumns(), data);
+  };
+
   updateColumn = async (columnId: string, data: UpdateColumnInput) => {
     return this.put(routes.updateColumn(columnId), data);
   };

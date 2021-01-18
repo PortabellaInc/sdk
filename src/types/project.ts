@@ -102,6 +102,7 @@ export type Column = {
 
 export type CreateColumnInput = {id?: string; title: string; color: string};
 export type UpdateColumnInput = Partial<Omit<Column, 'id'>>;
+export type UpdateColumnsInput = Partial<Column>[];
 export type Labels = {
   [x: string]: {
     color: string;

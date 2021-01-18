@@ -1,3 +1,5 @@
+import {UpdateColumnInput} from './types';
+
 type ColumnRouteParams = {columnId: string};
 type CardRouteParams = {cardId: string};
 type CommentRouteParams = {
@@ -15,6 +17,7 @@ export const updateBoard = () => `/board`;
 
 export const addColumn = () => `/columns`;
 export const updateColumn = (columnId: string) => `/columns/${columnId}`;
+export const updateColumns = () => `/columns`;
 
 export const addCard = () => `/cards`;
 export const getCard = (cardId: string) => `/cards/${cardId}`;

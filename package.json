@@ -2,12 +2,13 @@
   "name": "@portabella/sdk",
   "version": "0.0.8",
   "main": "build/index.js",
+  "types": "build/index.d.ts",
   "files": [
     "build"
   ],
   "scripts": {
     "build": "tsc -b tsconfig.json",
-    "test": "mocha -r ts-node/register test/**/*.test.ts --timeout 5000"
+    "test": "mocha -r ts-node/register tests/**/*.test.ts --timeout 5000"
   },
   "dependencies": {
     "@babel/preset-typescript": "^7.12.1",

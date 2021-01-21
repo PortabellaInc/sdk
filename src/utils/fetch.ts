@@ -18,12 +18,12 @@ const isPrimitive = (data: any) =>
   data instanceof Date;
 
 const recurse = (data: any, fn: (label: string, value: string) => any): any => {
-  if (isPrimitive(data)) {
-    return data;
-  }
-
   if (!data) {
     return null;
+  }
+
+  if (isPrimitive(data)) {
+    return data;
   }
 
   // for now we only encrypt the value in {key: value}
@@ -34,7 +34,13 @@ const recurse = (data: any, fn: (label: string, value: string) => any): any => {
   return Object.keys(data).reduce(async (prom, key) => {
     const accum = await prom;
 
-    const newValue = fn(key, data[key]);
+    let newValue: any;
+    if (isPrimitive(data[key])) {
+      newValue = fn(key, data[key]);
+    } else {
+      newValue = await recurse(data[key], fn);
+    }
+
     return {
       ...accum,
       [key]: newValue,

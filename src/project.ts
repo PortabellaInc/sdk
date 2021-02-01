@@ -70,7 +70,7 @@ export class ProjectSDK {
       boardKeyPair = await generateAES();
       wrappedKey = await keyPair.wrapKey(boardKeyPair);
       if (p.public) {
-        privateKey = await Buffer.from(exportKey(boardKeyPair)).toString(
+        privateKey = await Buffer.from(await exportKey(boardKeyPair)).toString(
           'base64'
         );
       }

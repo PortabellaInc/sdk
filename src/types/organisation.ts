@@ -45,3 +45,5 @@ export type Employee = {
   role: Role;
   encryptedKey?: string;
 };
+
+export const PendingMembershipName = 'Membership pending';

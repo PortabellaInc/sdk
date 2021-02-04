@@ -8,6 +8,7 @@ import {
   CreateOrganisation,
   Key,
   Organisation,
+  PendingMembershipName,
   ProjectList,
   Role,
 } from './types';
@@ -283,7 +284,7 @@ export class UserSDK {
         if (!r.encryptedKey && !r.publicKey) {
           return {
             ...r,
-            name: 'Membership pending',
+            name: PendingMembershipName,
           };
         }
 
@@ -343,7 +344,7 @@ export class UserSDK {
       response.map(async (r: Organisation) => {
         if (!r.encryptedKey) {
           return {
-            name: 'Membership pending',
+            name: PendingMembershipName,
           };
         }
         const key = await this.keyPair?.unwrapKey(r.encryptedKey, r.keyType);

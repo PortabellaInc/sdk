@@ -1,7 +1,7 @@
 import {UserSDK} from './admin';
 import {default as AsymmetricKeyPair} from './services/crypto/asymmetric';
 import {decryptFields, encryptFields} from './services/crypto/helpers';
-import {Organisation, ProjectList, Role} from './types';
+import {OrganisationWithRole, ProjectList, Role} from './types';
 
 export class TeamSDK {
   user: UserSDK;
@@ -14,7 +14,7 @@ export class TeamSDK {
     this.organisationId = organisationId;
   }
 
-  public async load(): Promise<Organisation> {
+  public async load(): Promise<OrganisationWithRole> {
     const {employee, ...organisation} = await this.user.get(
       `/organisations/${this.organisationId}`
     );
@@ -106,7 +106,13 @@ export class TeamSDK {
     });
   };
 
-  getMembers = async () => {
+  getMembers = async (): Promise<any[]> => {
     return this.get(`/members`);
+  };
+
+  removeMember = async (userId: string) => {
+    return this.teamFetch(`/members/${userId}`, {
+      method: 'DELETE',
+    });
   };
 }

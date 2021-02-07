@@ -18,18 +18,21 @@ export type PaddleSubscription = {
   createdAt: Date;
 };
 
-export type Organisation = {
+export interface Organisation {
   id: string;
   name: string;
   description?: string;
   publicKey: string;
   keyType: 'EC';
   subscription?: PaddleSubscription;
-  role: Role;
-  encryptedKey?: string;
   createdAt: Date;
   updatedAt: Date;
-};
+}
+
+export interface OrganisationWithRole extends Organisation {
+  role: Role;
+  encryptedKey?: string;
+}
 
 export type CreateOrganisation = {
   name: string;

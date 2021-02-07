@@ -8,6 +8,7 @@ import {
   CreateOrganisation,
   Key,
   Organisation,
+  OrganisationWithRole,
   PendingMembershipName,
   ProjectList,
   Role,
@@ -334,14 +335,14 @@ export class UserSDK {
     );
   };
 
-  getTeams = async (): Promise<Organisation[]> => {
+  getTeams = async (): Promise<OrganisationWithRole[]> => {
     const response = await this.get('/me/organisations');
     if (!response) {
       return [];
     }
 
-    const teams: Organisation[] = await Promise.all(
-      response.map(async (r: Organisation) => {
+    const teams: OrganisationWithRole[] = await Promise.all(
+      response.map(async (r: OrganisationWithRole) => {
         if (!r.encryptedKey) {
           return {
             name: PendingMembershipName,

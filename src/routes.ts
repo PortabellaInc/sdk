@@ -31,6 +31,7 @@ export const updateComment = (params: CommentRouteParams) =>
   `/cards/${params.cardId}/comments/${params.commentId}`;
 
 export const getMembers = (boardId: string) => `/boards/${boardId}/members`;
+export const updateMember = (userId: string) => `/members/${userId}`;
 
 export const uploadFile = (cardId: string) => `/cards/${cardId}/files`;
 export const confirmFileUploaded = (params: FileParams) =>

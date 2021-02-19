@@ -33,6 +33,7 @@ import {
   UpdateColumnInput,
   UpdateFolderInput,
   CreateIntegration,
+  Role,
 } from './types';
 import {fetch} from './utils';
 
@@ -219,6 +220,10 @@ export class ProjectSDK {
 
   del = async (path: string) => {
     return this.encryptedFetch(path, 'delete');
+  };
+
+  updateMember = async (userId: string, role: Role) => {
+    return this.put(routes.updateMember(userId), {role});
   };
 
   updateBoard = async (data: UpdateBoardInput) => {

@@ -15,6 +15,8 @@ export type PaddleSubscription = {
   updateUrl: string;
   cancelUrl: string;
 
+  priceModifier: number;
+
   createdAt: Date;
 };
 
